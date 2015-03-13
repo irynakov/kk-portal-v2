@@ -1,0 +1,10 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+ xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:m="urn:import:com.kk.portal.client.app.ui.module.parkoverview.ui">
+ <ui:style>
+ 
+ </ui:style>
+ <g:HTMLPanel>
+  <m:TreeTable />
+ </g:HTMLPanel>
+</ui:UiBinder> 

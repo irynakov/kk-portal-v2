@@ -5,6 +5,7 @@
 *.war
 
 # gwt caches and compiled units #
+war/kk_portal/
 war/gwt_bree/
 gwt-unitCache/
 

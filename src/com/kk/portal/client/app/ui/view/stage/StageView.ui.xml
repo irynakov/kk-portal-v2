@@ -1,0 +1,21 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+ xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:w="urn:import:com.kk.portal.client.app.ui.widget">
+ <ui:style>
+ .important {
+ 	font-weight: bold;
+ }
+ </ui:style>
+ <g:HTMLPanel>
+    <g:Button styleName="{style.important}" ui:field="logout"
+   text="Log out" />
+  <g:Button styleName="{style.important}" ui:field="update"
+   text="Increase proggress" />
+   <g:Button styleName="{style.important}" ui:field="reset"
+   text="Decrease proggress" />
+  <w:ChartBar ui:field="chartBar1" />
+  <w:ChartBar ui:field="chartBar2" />
+  <w:ChartBar ui:field="chartBar3" />
+  <w:ChartBar ui:field="chartBar4" />
+ </g:HTMLPanel>
+</ui:UiBinder> 

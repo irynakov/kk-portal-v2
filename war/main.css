@@ -1,0 +1,132 @@
+@CHARSET "ISO-8859-1";
+
+.error {
+	padding: 3px 8px;
+	margin: 3px 0;
+	border: 1px solid red;
+	color: red;
+	background-color: rgba(250, 235, 215, 0.59);
+	box-sizing: border-box;
+	-mox-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	font-size: small;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+/* -------               Login page               ------- */
+.login-view {
+	background: #fff url("img/bg_kk.jpg") no-repeat left top fixed;
+	background-size: 100% 100%;
+	min-height: 390px;
+}
+
+.login-view .logo {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	background: url("img/logo_140px.png") no-repeat left top fixed;
+	background-position: 7% 20%;
+}
+
+.login-view .name {
+	font-size: 4em;
+	text-align: left;
+	position: absolute;
+	bottom: 15%;
+	left: 10%;
+}
+
+.login-panel {
+	position: absolute;
+	width: 300px;
+	height: 230px;
+	min-width: 300px;
+	min-height: 230px;
+	left: 50%;
+	top: 50%;
+	margin: -115px 0 0 -150px;
+}
+
+.login-panel td {
+	overflow: hidden;
+}
+
+.login-panel .header {
+	padding: 5px 2px;
+	font-size: x-large;
+	font-weight: bold;
+	border-top: 3px solid black;
+	border-bottom: 1px solid black;
+}
+
+.login-panel .error-container {
+	height: 26px;
+	margin: 5px 0px;
+	width: 300px;
+}
+
+.login-panel .error-container div:not ([style *="display: none;"] ):last-child
+	{
+	cursor: help;
+}
+
+.login-panel .control-group {
+	width: 100%;
+}
+
+.login-panel .control-group .input-error {
+	border-color: red;
+	cursor: help;
+}
+
+.login-panel .control-group input:not ([type='checkbox'] ) {
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.login-panel .control-group input[type='checkbox'] {
+	width: 16px;
+	height: 16px;
+}
+
+.login-panel .control-group span {
+	vertical-align: super;
+	box-sizing: border-box;
+	font-weight: bold;
+	white-space: nowrap;
+}
+
+/* -------               Login page               ------- */
+.kk-ChartBar {
+	width: auto;
+	height: 25px;
+	background-color: #ddd;
+	position: relative;
+	text-align: right;
+	font-size: 13px;
+	margin: 5px;
+}
+
+.kk-ChartBar-label {
+	position: relative;
+	right: 50%;
+	top: 3px;
+}
+
+.kk-ChartBar-progress {
+	height: 100%;
+	position: absolute;
+	bottom: 0px;
+	opacity: 0.9;
+}
+
+.kk-ChartBar-marker {
+	height: 100%;
+	position: absolute;
+	border-right: 2px solid #f15f26;
+	top: 0px;
+}
