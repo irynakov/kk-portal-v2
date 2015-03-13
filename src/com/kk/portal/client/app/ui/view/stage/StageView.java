@@ -8,8 +8,10 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.inject.Singleton;
+import com.kk.portal.client.app.ui.module.parkoverview.ParkOverviewModule;
 import com.kk.portal.client.app.ui.view.ApplicationView;
 import com.kk.portal.client.app.ui.widget.ChartBar;
 
@@ -38,6 +40,9 @@ public class StageView extends Composite implements ApplicationView<StagePresent
 	ChartBar chartBar3;
 	@UiField
 	ChartBar chartBar4;
+	
+	@UiField
+	HTMLPanel tableWrapper;
 
 	private StagePresenter presenter;
 
@@ -62,6 +67,8 @@ public class StageView extends Composite implements ApplicationView<StagePresent
 		chartBar4.setMarker(0.7);
 		chartBar4.setProgressColor("#FFFF7F");
 		chartBar4.setDataFormatter(NumberFormat.getFormat("#.#' mWa'"));
+		
+		tableWrapper.add(new ParkOverviewModule());
 	}
 
 	@UiHandler("logout")

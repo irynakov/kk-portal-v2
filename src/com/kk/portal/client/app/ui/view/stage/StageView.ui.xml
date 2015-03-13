@@ -17,5 +17,6 @@
   <w:ChartBar ui:field="chartBar2" />
   <w:ChartBar ui:field="chartBar3" />
   <w:ChartBar ui:field="chartBar4" />
+  <g:HTMLPanel ui:field="tableWrapper" />
  </g:HTMLPanel>
 </ui:UiBinder> 
