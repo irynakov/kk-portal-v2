@@ -20,15 +20,20 @@
  <!-- Specify the paths for translatable code -->
  <source path='client' />
  <source path='shared' />
-
+ <source path='resource' />
+ 
+ <public path='resource' >
+    <exclude name="**/*.class"/>
+    <exclude name="**/*.java"/>
+ </public>
+ 
  <!--Supported user agents. -->
  <set-property name="user.agent" value="safari, gecko1_8" />
 
  <!-- Logging configuration -->
  <set-property name="gwt.logging.enabled" value="TRUE" />
  <set-property name="gwt.logging.logLevel" value="FINE" />
- <set-property name="gwt.logging.developmentModeHandler"
-  value="ENABLED" />
+ <set-property name="gwt.logging.developmentModeHandler" value="ENABLED" />
  <set-property name="gwt.logging.consoleHandler" value="ENABLED" />
 
  <!-- allow Super Dev Mode -->

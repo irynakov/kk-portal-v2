@@ -1,4 +1,4 @@
-package com.kk.portal.client.app.ui.resource.constants;
+package com.kk.portal.resource.settings;
 
 import com.google.gwt.i18n.client.Constants;
 

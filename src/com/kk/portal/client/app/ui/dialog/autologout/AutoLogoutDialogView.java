@@ -11,16 +11,16 @@ import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.InlineLabel;
 import com.google.gwt.user.client.ui.PopupPanel;
 import com.kk.portal.client.app.ui.dialog.DialogView;
-import com.kk.portal.client.app.ui.resource.messages.AppMessages;
+import com.kk.portal.resource.messages.AppStringConstants;
 
 public class AutoLogoutDialogView extends DialogBox implements DialogView<AutoLogoutPresenter> {
-
-	private static AppMessages msgs = GWT.create(AppMessages.class);
 
 	private static AutoLogoutDialogViewUiBinder uiBinder = GWT.create(AutoLogoutDialogViewUiBinder.class);
 
 	interface AutoLogoutDialogViewUiBinder extends UiBinder<HTMLPanel, AutoLogoutDialogView> {
 	}
+
+	private static final AppStringConstants cstr = GWT.create(AppStringConstants.class);
 
 	@UiField
 	InlineLabel counter;
@@ -32,7 +32,7 @@ public class AutoLogoutDialogView extends DialogBox implements DialogView<AutoLo
 
 	public AutoLogoutDialogView() {
 
-		getCaption().setText(msgs.AutoLogoutDialogView_header());
+		getCaption().setText(cstr.AutoLogoutDialogView_header());
 		setModal(true);
 		setGlassEnabled(true);
 
@@ -54,7 +54,7 @@ public class AutoLogoutDialogView extends DialogBox implements DialogView<AutoLo
 		return this;
 	}
 
-	public void setCounter(final int count) {
-		counter.setText(msgs.AutoLogoutDialogView_login_trminated(count));
+	public void setMessage(final String masg) {
+		counter.setText(masg);
 	}
 }
