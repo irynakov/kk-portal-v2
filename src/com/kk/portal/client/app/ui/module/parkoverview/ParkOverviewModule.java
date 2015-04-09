@@ -14,6 +14,7 @@ public class ParkOverviewModule extends Composite {
 
 	public ParkOverviewModule() {
 		initWidget(uiBinder.createAndBindUi(this));
+
 	}
 
 }

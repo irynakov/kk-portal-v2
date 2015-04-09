@@ -9,17 +9,18 @@ import com.google.inject.Inject;
 import com.kk.portal.client.app.ui.event.LoginSuccessEvent;
 import com.kk.portal.client.app.ui.event.LoginSuccessEvent.LoginSuccessEventHandler;
 import com.kk.portal.client.app.ui.event.LogoutEvent.LogoutEventHandler;
+import com.kk.portal.client.app.ui.event.LogoutResetEvent.LogoutResetEventHandler;
 import com.kk.portal.client.app.ui.support.AutoLogoutScheduler;
 import com.kk.portal.client.app.ui.view.login.LoginPresenter;
 import com.kk.portal.client.app.ui.view.stage.StagePresenter;
 
-public class ApplicationController implements LoginSuccessEventHandler, LogoutEventHandler {
+public class ApplicationController implements LoginSuccessEventHandler, LogoutEventHandler, LogoutResetEventHandler {
 
 	private static final Logger LOG = Logger.getLogger(ApplicationController.class.getName());
 
 	@Inject
 	ApplicationEventBus appBus;
-	
+
 	@Inject
 	AutoLogoutScheduler autoLogout;
 
@@ -38,6 +39,7 @@ public class ApplicationController implements LoginSuccessEventHandler, LogoutEv
 
 		appBus.addLoginSuccessHandler(this);
 		appBus.addLogoutHandler(this);
+		appBus.addResetLogoutHandler(this);
 	}
 
 	public void startApplication() {
@@ -69,8 +71,16 @@ public class ApplicationController implements LoginSuccessEventHandler, LogoutEv
 		LOG.info("User signed out.");
 
 		Cookies.removeCookie("active_user");
+		autoLogout.stop();
 
 		this.root.clear();
 		this.root.add(login.getView());
+	}
+
+	@Override
+	public void onResetLogout() {
+		LOG.info("User reset auto logout scheduler.");
+
+		autoLogout.start();
 	}
 }

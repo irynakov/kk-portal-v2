@@ -9,6 +9,7 @@ import com.kk.portal.client.app.ui.event.LoginEvent;
 import com.kk.portal.client.app.ui.event.LoginFaildEvent;
 import com.kk.portal.client.app.ui.event.LoginSuccessEvent;
 import com.kk.portal.client.app.ui.event.LogoutEvent;
+import com.kk.portal.client.app.ui.event.LogoutResetEvent;
 
 @Singleton
 public class ApplicationEventBus extends SimpleEventBus {
@@ -56,4 +57,12 @@ public class ApplicationEventBus extends SimpleEventBus {
 		fireEvent(new LogoutEvent());
 	}
 
+	public HandlerRegistration addResetLogoutHandler(final LogoutResetEvent.LogoutResetEventHandler handler) {
+		LOG.info("Add ResetLogoutHandler: [" + handler.getClass().getName() + "]");
+		return addHandler(LogoutResetEvent.TYPE, handler);
+	}
+
+	public void notifyLogoutReset() {
+		fireEvent(new LogoutResetEvent());
+	}
 }
