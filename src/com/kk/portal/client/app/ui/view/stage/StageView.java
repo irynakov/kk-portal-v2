@@ -23,13 +23,13 @@ public class StageView extends Composite implements ApplicationView<StagePresent
 	HTMLPanel headerWrapper;
 
 	@UiField
-	HTMLPanel contentWrapper;
-
-	@UiField
 	HTMLPanel navigationWrapper;
 
 	@UiField
-	HTMLPanel workspaceWrapper;
+	HTMLPanel tabsWrapper;
+
+	@UiField
+	HTMLPanel modulesWrapper;
 
 	public StageView() {
 		initWidget(uiBinder.createAndBindUi(this));

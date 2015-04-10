@@ -130,3 +130,15 @@
 	position: relative;
 	background-color: lemonchiffon;
 }
+
+.stage .tabs-wrapper {
+	background-color: lightgreen;
+	width: 100%;
+	height: 30px;
+}
+
+.stage .modules-wrapper {
+	background-color: lightsteelblue;
+	width: 100%;
+	height: calc(100% - 30px);
+}

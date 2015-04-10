@@ -3,9 +3,12 @@
 
 	<g:HTMLPanel styleName="stage">
 		<g:HTMLPanel ui:field="headerWrapper" styleName="header-wrapper"/>
-		<g:HTMLPanel ui:field="contentWrapper" styleName="content-wrapper">
+		<g:HTMLPanel styleName="content-wrapper">
 			<g:HTMLPanel ui:field="navigationWrapper" styleName="navigation-wrapper"/>
-			<g:HTMLPanel ui:field="workspaceWrapper" styleName="workspace-wrapper"/>
+			<g:HTMLPanel styleName="workspace-wrapper">
+				<g:HTMLPanel ui:field="tabsWrapper" styleName="tabs-wrapper"/>
+				<g:HTMLPanel ui:field="modulesWrapper" styleName="modules-wrapper"/>
+			</g:HTMLPanel>
 		</g:HTMLPanel>
 	</g:HTMLPanel>
 </ui:UiBinder> 

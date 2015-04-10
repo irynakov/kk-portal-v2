@@ -6,6 +6,7 @@ import com.google.gwt.user.client.Cookies;
 import com.google.gwt.user.client.ui.LayoutPanel;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
 import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import com.kk.portal.client.app.ui.event.LoginSuccessEvent;
 import com.kk.portal.client.app.ui.event.LoginSuccessEvent.LoginSuccessEventHandler;
 import com.kk.portal.client.app.ui.event.LogoutEvent.LogoutEventHandler;
@@ -15,6 +16,7 @@ import com.kk.portal.client.app.ui.view.ViewProvider;
 import com.kk.portal.client.app.ui.view.login.LoginView;
 import com.kk.portal.client.app.ui.view.stage.StageView;
 
+@Singleton
 public class ApplicationController implements LoginSuccessEventHandler, LogoutEventHandler, LogoutResetEventHandler {
 
 	private static final Logger LOG = Logger.getLogger(ApplicationController.class.getName());
@@ -34,7 +36,7 @@ public class ApplicationController implements LoginSuccessEventHandler, LogoutEv
 		LOG.info("Application initialization.");
 
 		this.root = root;
-		
+
 		views.build();
 
 		appBus.addLoginSuccessHandler(this);
@@ -46,7 +48,7 @@ public class ApplicationController implements LoginSuccessEventHandler, LogoutEv
 		LOG.info("Application start.");
 
 		if (Cookies.getCookie("active_user") != null) {
-			this.root.add(views.view(StageView.class));
+			buildStage();
 		} else {
 			this.root.add(views.view(LoginView.class));
 		}
@@ -63,7 +65,7 @@ public class ApplicationController implements LoginSuccessEventHandler, LogoutEv
 		}
 
 		this.root.clear();
-		this.root.add(views.view(StageView.class));
+		buildStage();
 	}
 
 	@Override
@@ -82,5 +84,9 @@ public class ApplicationController implements LoginSuccessEventHandler, LogoutEv
 		LOG.info("User reset auto logout scheduler.");
 
 		autoLogout.start();
+	}
+
+	private void buildStage() {
+		this.root.add(views.view(StageView.class));
 	}
 }
