@@ -1,9 +1,11 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
-<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
- xmlns:g="urn:import:com.google.gwt.user.client.ui">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui">
 
- <g:HTMLPanel>
-  <g:Button ui:field="logout" text="Log out" />
-  <g:HTMLPanel ui:field="tableWrapper" />
- </g:HTMLPanel>
+	<g:HTMLPanel styleName="stage">
+		<g:HTMLPanel ui:field="headerWrapper" styleName="header-wrapper"/>
+		<g:HTMLPanel ui:field="contentWrapper" styleName="content-wrapper">
+			<g:HTMLPanel ui:field="navigationWrapper" styleName="navigation-wrapper"/>
+			<g:HTMLPanel ui:field="workspaceWrapper" styleName="workspace-wrapper"/>
+		</g:HTMLPanel>
+	</g:HTMLPanel>
 </ui:UiBinder> 

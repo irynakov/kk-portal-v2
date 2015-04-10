@@ -15,17 +15,26 @@ public class LoginPresenter extends ApplicationPresenter<LoginView, LoginService
 
 	private static final Logger LOG = Logger.getLogger(LoginPresenter.class.getName());
 
-	private final ApplicationEventBus appBus;
-
 	@Inject
-	public LoginPresenter(final LoginView view, final ApplicationEventBus appBus) {
-		super(view);
-		this.appBus = appBus;
-		
+	ApplicationEventBus appBus;
+
+	@Override
+	protected void initEventSubscriptions() {
 		appBus.addLoginFaildHandler(this);
 		appBus.addLoginSuccessHandler(this);
-		
-		LOG.info("LoginPresenter created.");
+
+		LOG.info("LoginPresenter subscribed for events.");
+	}
+
+	@Override
+	public void onLoginFaild(final LoginFaildEvent event) {
+		LOG.info("User can't be signed in due to: [" + event.getReason() + "]");
+		view.showServerError(event.getReason());
+	}
+
+	@Override
+	public void onLoginSuccess(final LoginSuccessEvent event) {
+		view.resetView();
 	}
 
 	void login(final String username, final String password, final Boolean stay) {
@@ -41,16 +50,5 @@ public class LoginPresenter extends ApplicationPresenter<LoginView, LoginService
 				view.showPasswordError("Field can't be empty.");
 			}
 		}
-	}
-
-	@Override
-	public void onLoginFaild(final LoginFaildEvent event) {
-		LOG.info("User can't be signed in due to: [" + event.getReason() + "]");
-		view.showServerError(event.getReason());
-	}
-
-	@Override
-	public void onLoginSuccess(final LoginSuccessEvent event) {
-		view.resetView();
 	}
 }

@@ -11,12 +11,14 @@ import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FormPanel;
 import com.google.gwt.user.client.ui.FormPanel.SubmitEvent;
+import com.google.gwt.user.client.ui.InlineLabel;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.PasswordTextBox;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.inject.Singleton;
 import com.kk.portal.client.app.ui.view.ApplicationView;
+import com.kk.portal.resource.messages.AppStringConstants;
 
 @Singleton
 public class LoginView extends Composite implements ApplicationView<LoginPresenter> {
@@ -28,25 +30,44 @@ public class LoginView extends Composite implements ApplicationView<LoginPresent
 	interface LoginViewUiBinder extends UiBinder<Widget, LoginView> {
 	}
 
+	private static final AppStringConstants scnst = GWT.create(AppStringConstants.class);
+	@UiField(provided = true)
+	InlineLabel productNameLbl = new InlineLabel(scnst.General_product_name_upcase());
+	@UiField(provided = true)
+	Label formCaption = new Label(scnst.LoginView_lbl_caption());
+	@UiField(provided = true)
+	InlineLabel usernameLbl = new InlineLabel(scnst.LoginView_lbl_username());
+	@UiField(provided = true)
+	InlineLabel passwordLbl = new InlineLabel(scnst.LoginView_lbl_password());
+	@UiField(provided = true)
+	InlineLabel stayLbl = new InlineLabel(scnst.LoginView_lbl_stay_loged_in());
+
 	@UiField
 	FormPanel form;
+
 	@UiField
 	TextBox username;
+
 	@UiField
 	PasswordTextBox password;
+
 	@UiField
 	CheckBox stay;
+
 	@UiField
 	Label error;
+
 	@UiField
 	SubmitButton ok;
 
 	public LoginView() {
 		initWidget(uiBinder.createAndBindUi(this));
-
+		
 		form.getElement().setId("login-form");
 		form.setAction("login");
 		form.setMethod("POST");
+
+		ok.setText(scnst.LoginView_btn_login());
 
 		username.setName("username");
 		password.setName("password");
@@ -81,6 +102,10 @@ public class LoginView extends Composite implements ApplicationView<LoginPresent
 	@Override
 	public void setPresenter(final LoginPresenter presenter) {
 		this.presenter = presenter;
+	}
+
+	@Override
+	public void initLayout() {
 	}
 
 	public void resetView() {

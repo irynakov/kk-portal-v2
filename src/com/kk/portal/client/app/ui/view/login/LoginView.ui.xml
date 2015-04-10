@@ -5,13 +5,13 @@
  <g:HTMLPanel styleName="login-view">
   <g:HTMLPanel styleName="logo">
 
-   <g:InlineLabel text="KK SCADA" styleName="name" />
+   <g:InlineLabel ui:field="productNameLbl" styleName="name" />
 
    <g:FormPanel ui:field="form">
     <g:VerticalPanel styleName="login-panel">
 
      <g:cell>
-      <g:Label text="Authentication" styleName="header" />
+      <g:Label ui:field="formCaption" styleName="header" />
      </g:cell>
 
      <g:cell>
@@ -25,7 +25,7 @@
 
        <g:row>
         <g:customCell>
-         <g:InlineLabel text="Username:" />
+         <g:InlineLabel ui:field="usernameLbl" />
         </g:customCell>
         <g:customCell>
          <g:TextBox ui:field="username" />
@@ -34,7 +34,7 @@
 
        <g:row>
         <g:customCell>
-         <g:InlineLabel text="Password:" />
+         <g:InlineLabel ui:field="passwordLbl" />
         </g:customCell>
         <g:customCell>
          <g:PasswordTextBox ui:field="password" />
@@ -43,7 +43,7 @@
 
        <g:row>
         <g:customCell>
-         <g:InlineLabel text="Stay logged in:" />
+         <g:InlineLabel ui:field="stayLbl" />
         </g:customCell>
         <g:customCell>
          <g:CheckBox ui:field="stay" />
@@ -54,7 +54,7 @@
      </g:cell>
 
      <g:cell>
-      <b:SubmitButton ui:field="ok" block="true">Login</b:SubmitButton>
+      <b:SubmitButton ui:field="ok" block="true" />
      </g:cell>
 
     </g:VerticalPanel>

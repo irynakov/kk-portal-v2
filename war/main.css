@@ -100,33 +100,33 @@
 	white-space: nowrap;
 }
 
-/* -------               Login page               ------- */
-.kk-ChartBar {
-	width: auto;
-	height: 25px;
-	background-color: #ddd;
+/* -------               Stage                    ------- */
+.stage {
+}
+
+.stage .header-wrapper {
 	position: relative;
-	text-align: right;
-	font-size: 13px;
-	margin: 5px;
+	background-color: lightslategray;
+	height: 50px;
 }
 
-.kk-ChartBar-caption {
+.stage .content-wrapper {
+	background-color: lightslategray;
 	position: relative;
-	right: 50%;
-	top: 3px;
+	width: 100%;
+	height: calc(100% - 50px);
+	display: table;
 }
 
-.kk-ChartBar-progress {
-	height: 100%;
-	position: absolute;
-	bottom: 0px;
-	opacity: 0.9;
+.stage .navigation-wrapper {
+	display: table-cell;
+	position: relative;
+	width: 150px;
+	background-color: lavender;
 }
 
-.kk-ChartBar-marker {
-	height: 100%;
-	position: absolute;
-	border-right: 2px solid #f15f26;
-	top: 0px;
+.stage .workspace-wrapper {
+	display: table-cell;
+	position: relative;
+	background-color: lemonchiffon;
 }

@@ -11,8 +11,9 @@ import com.kk.portal.client.app.ui.event.LoginSuccessEvent.LoginSuccessEventHand
 import com.kk.portal.client.app.ui.event.LogoutEvent.LogoutEventHandler;
 import com.kk.portal.client.app.ui.event.LogoutResetEvent.LogoutResetEventHandler;
 import com.kk.portal.client.app.ui.support.AutoLogoutScheduler;
-import com.kk.portal.client.app.ui.view.login.LoginPresenter;
-import com.kk.portal.client.app.ui.view.stage.StagePresenter;
+import com.kk.portal.client.app.ui.view.ViewProvider;
+import com.kk.portal.client.app.ui.view.login.LoginView;
+import com.kk.portal.client.app.ui.view.stage.StageView;
 
 public class ApplicationController implements LoginSuccessEventHandler, LogoutEventHandler, LogoutResetEventHandler {
 
@@ -25,10 +26,7 @@ public class ApplicationController implements LoginSuccessEventHandler, LogoutEv
 	AutoLogoutScheduler autoLogout;
 
 	@Inject
-	LoginPresenter login;
-
-	@Inject
-	StagePresenter stage;
+	ViewProvider views;
 
 	private LayoutPanel root;
 
@@ -36,6 +34,8 @@ public class ApplicationController implements LoginSuccessEventHandler, LogoutEv
 		LOG.info("Application initialization.");
 
 		this.root = root;
+		
+		views.build();
 
 		appBus.addLoginSuccessHandler(this);
 		appBus.addLogoutHandler(this);
@@ -46,9 +46,9 @@ public class ApplicationController implements LoginSuccessEventHandler, LogoutEv
 		LOG.info("Application start.");
 
 		if (Cookies.getCookie("active_user") != null) {
-			this.root.add(stage.getView());
+			this.root.add(views.view(StageView.class));
 		} else {
-			this.root.add(login.getView());
+			this.root.add(views.view(LoginView.class));
 		}
 	}
 
@@ -63,7 +63,7 @@ public class ApplicationController implements LoginSuccessEventHandler, LogoutEv
 		}
 
 		this.root.clear();
-		this.root.add(stage.getView());
+		this.root.add(views.view(StageView.class));
 	}
 
 	@Override
@@ -74,7 +74,7 @@ public class ApplicationController implements LoginSuccessEventHandler, LogoutEv
 		autoLogout.stop();
 
 		this.root.clear();
-		this.root.add(login.getView());
+		this.root.add(views.view(LoginView.class));
 	}
 
 	@Override
