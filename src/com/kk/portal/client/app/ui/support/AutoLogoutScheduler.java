@@ -3,8 +3,8 @@ package com.kk.portal.client.app.ui.support;
 import com.google.gwt.user.client.Timer;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-import com.kk.portal.client.app.ui.ApplicationEventBus;
 import com.kk.portal.client.app.ui.dialog.autologout.AutoLogoutPresenter;
+import com.kk.portal.client.app.ui.event.ApplicationEventBus;
 import com.kk.portal.resource.settings.AppSettings;
 
 @Singleton

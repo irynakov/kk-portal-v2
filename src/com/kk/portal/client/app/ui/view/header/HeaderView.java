@@ -13,10 +13,9 @@ import com.kk.portal.client.app.ui.view.ApplicationView;
 
 public class HeaderView extends Composite implements ApplicationView<HeaderPresenter> {
 
-	private static HeaderViewUiBinder uiBinder = GWT.create(HeaderViewUiBinder.class);
+	interface HeaderViewUiBinder extends UiBinder<Widget, HeaderView> {}
 
-	interface HeaderViewUiBinder extends UiBinder<Widget, HeaderView> {
-	}
+	private static HeaderViewUiBinder uiBinder = GWT.create(HeaderViewUiBinder.class);
 
 	@UiField
 	Button logout;
@@ -40,6 +39,7 @@ public class HeaderView extends Composite implements ApplicationView<HeaderPrese
 
 	@Override
 	public void initLayout() {
-		
+
 	}
+
 }

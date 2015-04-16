@@ -1,15 +1,15 @@
-package com.kk.portal.client.app.ui;
+package com.kk.portal.client.app.ui.event;
 
 import java.util.logging.Logger;
 
 import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.event.shared.SimpleEventBus;
 import com.google.inject.Singleton;
-import com.kk.portal.client.app.ui.event.LoginEvent;
-import com.kk.portal.client.app.ui.event.LoginFaildEvent;
-import com.kk.portal.client.app.ui.event.LoginSuccessEvent;
-import com.kk.portal.client.app.ui.event.LogoutEvent;
-import com.kk.portal.client.app.ui.event.LogoutResetEvent;
+import com.kk.portal.client.app.ui.event.app.LoginEvent;
+import com.kk.portal.client.app.ui.event.app.LoginFaildEvent;
+import com.kk.portal.client.app.ui.event.app.LoginSuccessEvent;
+import com.kk.portal.client.app.ui.event.app.LogoutEvent;
+import com.kk.portal.client.app.ui.event.app.LogoutResetEvent;
 
 @Singleton
 public class ApplicationEventBus extends SimpleEventBus {

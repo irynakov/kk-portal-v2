@@ -3,8 +3,8 @@ package com.kk.portal.client.app.ui.dialog.autologout;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.Timer;
 import com.google.inject.Inject;
-import com.kk.portal.client.app.ui.ApplicationEventBus;
 import com.kk.portal.client.app.ui.dialog.DialogPresenter;
+import com.kk.portal.client.app.ui.event.ApplicationEventBus;
 import com.kk.portal.resource.messages.AppMessages;
 
 public class AutoLogoutPresenter extends DialogPresenter<AutoLogoutDialogView> {

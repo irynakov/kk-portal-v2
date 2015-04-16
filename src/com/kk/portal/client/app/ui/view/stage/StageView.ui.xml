@@ -1,14 +1,16 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
-<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:v="urn:import:com.kk.portal.client.app.ui.view.workspace">
 
 	<g:HTMLPanel styleName="stage">
-		<g:HTMLPanel ui:field="headerWrapper" styleName="header-wrapper"/>
+
+		<g:HTMLPanel ui:field="headerWrapper"/>
+
 		<g:HTMLPanel styleName="content-wrapper">
 			<g:HTMLPanel ui:field="navigationWrapper" styleName="navigation-wrapper"/>
-			<g:HTMLPanel styleName="workspace-wrapper">
-				<g:HTMLPanel ui:field="tabsWrapper" styleName="tabs-wrapper"/>
-				<g:HTMLPanel ui:field="modulesWrapper" styleName="modules-wrapper"/>
-			</g:HTMLPanel>
+			<v:WorkspaceView ui:field="workspaceWrapper"/>
 		</g:HTMLPanel>
+
 	</g:HTMLPanel>
+
 </ui:UiBinder> 

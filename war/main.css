@@ -69,8 +69,7 @@
 	width: 300px;
 }
 
-.login-panel .error-container div:not ([style *="display: none;"] ):last-child
-	{
+.login-panel .error-container div:not([style*="display: none;"]):last-child {
 	cursor: help;
 }
 
@@ -83,7 +82,7 @@
 	cursor: help;
 }
 
-.login-panel .control-group input:not ([type='checkbox'] ) {
+.login-panel .control-group input:not([type='checkbox']) {
 	width: 100%;
 	box-sizing: border-box;
 }
@@ -99,15 +98,9 @@
 	font-weight: bold;
 	white-space: nowrap;
 }
-
 /* -------               Stage                    ------- */
 .stage {
-}
-
-.stage .header-wrapper {
-	position: relative;
-	background-color: lightslategray;
-	height: 50px;
+	
 }
 
 .stage .content-wrapper {
@@ -118,27 +111,38 @@
 	display: table;
 }
 
-.stage .navigation-wrapper {
+/* -------              Navigation                ------- */
+.navigation-wrapper {
 	display: table-cell;
 	position: relative;
 	width: 150px;
 	background-color: lavender;
 }
 
-.stage .workspace-wrapper {
+/* -------               Header                   ------- */
+.header-wrapper {
+	position: relative;
+	background-color: lightslategray;
+	height: 50px;
+}
+
+/* -------              Workspace                 ------- */
+.workspace-wrapper {
 	display: table-cell;
 	position: relative;
 	background-color: lemonchiffon;
 }
 
-.stage .tabs-wrapper {
+/* -------               Tab Bar                  ------- */
+.tabbar-wrapper {
 	background-color: lightgreen;
 	width: 100%;
-	height: 30px;
 }
 
-.stage .modules-wrapper {
+/* -------              Card Table                ------- */
+.cardtable-wrapper {
 	background-color: lightsteelblue;
 	width: 100%;
 	height: calc(100% - 30px);
 }
+

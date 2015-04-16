@@ -9,27 +9,26 @@ import org.fusesource.restygwt.client.MethodCallback;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.kk.portal.client.app.comm.WebServiceCommunicationInterface;
-import com.kk.portal.client.app.ui.ApplicationEventBus;
-import com.kk.portal.client.app.ui.event.LoginEvent;
-import com.kk.portal.client.app.ui.event.LoginEvent.LoginEventHandler;
+import com.kk.portal.client.app.ui.event.ApplicationEventBus;
+import com.kk.portal.client.app.ui.event.app.LoginEvent;
+import com.kk.portal.client.app.ui.event.app.LoginEvent.LoginEventHandler;
+import com.kk.portal.client.app.ui.view.ApplicationService;
 import com.kk.portal.shared.domain.comm.resp.LoginResp;
 
 @Singleton
-public class LoginService implements LoginEventHandler {
+public class LoginService implements ApplicationService, LoginEventHandler {
 
 	private static final Logger LOG = Logger.getLogger(LoginService.class.getName());
 
 	@Inject
 	WebServiceCommunicationInterface comm;
 
-	private final ApplicationEventBus appBus;
-
 	@Inject
-	public LoginService(final ApplicationEventBus appBus) {
-		super();
-		this.appBus = appBus;
+	ApplicationEventBus appBus;
 
-		this.appBus.addLoginHandler(this);
+	@Override
+	public void initEventSubscriptions() {
+		appBus.addLoginHandler(this);
 	}
 
 	@Override
@@ -55,4 +54,5 @@ public class LoginService implements LoginEventHandler {
 			}
 		});
 	}
+
 }

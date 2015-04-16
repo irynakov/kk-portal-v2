@@ -1,10 +1,10 @@
-package com.kk.portal.client.app.ui.view.stage;
+package com.kk.portal.client.app.ui.view.workspace;
 
 import com.google.inject.Singleton;
 import com.kk.portal.client.app.ui.view.ApplicationService;
 
 @Singleton
-public class StageService implements ApplicationService {
+public class WorkspaceService implements ApplicationService {
 
 	@Override
 	public void initEventSubscriptions() {

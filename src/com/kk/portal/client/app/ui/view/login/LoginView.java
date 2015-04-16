@@ -23,14 +23,11 @@ import com.kk.portal.resource.messages.AppStringConstants;
 @Singleton
 public class LoginView extends Composite implements ApplicationView<LoginPresenter> {
 
-	private static LoginViewUiBinder uiBinder = GWT.create(LoginViewUiBinder.class);
+	interface LoginViewUiBinder extends UiBinder<Widget, LoginView> {}
 
-	private LoginPresenter presenter;
-
-	interface LoginViewUiBinder extends UiBinder<Widget, LoginView> {
-	}
-
+	private static final LoginViewUiBinder uiBinder = GWT.create(LoginViewUiBinder.class);
 	private static final AppStringConstants scnst = GWT.create(AppStringConstants.class);
+
 	@UiField(provided = true)
 	InlineLabel productNameLbl = new InlineLabel(scnst.General_product_name_upcase());
 	@UiField(provided = true)
@@ -60,9 +57,11 @@ public class LoginView extends Composite implements ApplicationView<LoginPresent
 	@UiField
 	SubmitButton ok;
 
+	private LoginPresenter presenter;
+
 	public LoginView() {
 		initWidget(uiBinder.createAndBindUi(this));
-		
+
 		form.getElement().setId("login-form");
 		form.setAction("login");
 		form.setMethod("POST");

@@ -4,14 +4,15 @@ import java.util.logging.Logger;
 
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-import com.kk.portal.client.app.ui.ApplicationEventBus;
-import com.kk.portal.client.app.ui.event.LoginFaildEvent;
-import com.kk.portal.client.app.ui.event.LoginSuccessEvent;
-import com.kk.portal.client.app.ui.event.LoginSuccessEvent.LoginSuccessEventHandler;
+import com.kk.portal.client.app.ui.event.ApplicationEventBus;
+import com.kk.portal.client.app.ui.event.app.LoginFaildEvent;
+import com.kk.portal.client.app.ui.event.app.LoginSuccessEvent;
+import com.kk.portal.client.app.ui.event.app.LoginFaildEvent.LoginFaildEventHandler;
+import com.kk.portal.client.app.ui.event.app.LoginSuccessEvent.LoginSuccessEventHandler;
 import com.kk.portal.client.app.ui.view.ApplicationPresenter;
 
 @Singleton
-public class LoginPresenter extends ApplicationPresenter<LoginView, LoginService> implements LoginFaildEvent.LoginFaildEventHandler, LoginSuccessEventHandler {
+public class LoginPresenter extends ApplicationPresenter<LoginView, LoginService> implements LoginFaildEventHandler, LoginSuccessEventHandler {
 
 	private static final Logger LOG = Logger.getLogger(LoginPresenter.class.getName());
 

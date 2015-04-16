@@ -8,16 +8,14 @@ import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.inject.Singleton;
 import com.kk.portal.client.app.ui.view.ApplicationView;
+import com.kk.portal.client.app.ui.view.workspace.WorkspaceView;
 
 @Singleton
 public class StageView extends Composite implements ApplicationView<StagePresenter> {
 
+	interface StageViewUiBinder extends UiBinder<Widget, StageView> {}
+
 	private static StageViewUiBinder uiBinder = GWT.create(StageViewUiBinder.class);
-
-	interface StageViewUiBinder extends UiBinder<Widget, StageView> {
-	}
-
-	private StagePresenter presenter;
 
 	@UiField
 	HTMLPanel headerWrapper;
@@ -25,15 +23,10 @@ public class StageView extends Composite implements ApplicationView<StagePresent
 	@UiField
 	HTMLPanel navigationWrapper;
 
-	@UiField
-	HTMLPanel tabsWrapper;
+	@UiField(provided=true)
+	WorkspaceView workspaceWrapper;
 
-	@UiField
-	HTMLPanel modulesWrapper;
-
-	public StageView() {
-		initWidget(uiBinder.createAndBindUi(this));
-	}
+	private StagePresenter presenter;
 
 	@Override
 	public void setPresenter(StagePresenter presenter) {
@@ -42,6 +35,12 @@ public class StageView extends Composite implements ApplicationView<StagePresent
 
 	@Override
 	public void initLayout() {
+		workspaceWrapper = presenter.getWorkspace();
+
+		initWidget(uiBinder.createAndBindUi(this));
+
 		headerWrapper.add(presenter.getHeader());
+		navigationWrapper.add(presenter.getNavigation());
 	}
+
 }

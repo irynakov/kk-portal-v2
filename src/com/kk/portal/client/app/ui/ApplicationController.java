@@ -7,12 +7,13 @@ import com.google.gwt.user.client.ui.LayoutPanel;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-import com.kk.portal.client.app.ui.event.LoginSuccessEvent;
-import com.kk.portal.client.app.ui.event.LoginSuccessEvent.LoginSuccessEventHandler;
-import com.kk.portal.client.app.ui.event.LogoutEvent.LogoutEventHandler;
-import com.kk.portal.client.app.ui.event.LogoutResetEvent.LogoutResetEventHandler;
+import com.kk.portal.client.app.ui.event.ApplicationEventBus;
+import com.kk.portal.client.app.ui.event.app.LoginSuccessEvent;
+import com.kk.portal.client.app.ui.event.app.LoginSuccessEvent.LoginSuccessEventHandler;
+import com.kk.portal.client.app.ui.event.app.LogoutEvent.LogoutEventHandler;
+import com.kk.portal.client.app.ui.event.app.LogoutResetEvent.LogoutResetEventHandler;
 import com.kk.portal.client.app.ui.support.AutoLogoutScheduler;
-import com.kk.portal.client.app.ui.view.ViewProvider;
+import com.kk.portal.client.app.ui.view.ApplicationViewFactory;
 import com.kk.portal.client.app.ui.view.login.LoginView;
 import com.kk.portal.client.app.ui.view.stage.StageView;
 
@@ -28,7 +29,7 @@ public class ApplicationController implements LoginSuccessEventHandler, LogoutEv
 	AutoLogoutScheduler autoLogout;
 
 	@Inject
-	ViewProvider views;
+	ApplicationViewFactory views;
 
 	private LayoutPanel root;
 
@@ -36,8 +37,6 @@ public class ApplicationController implements LoginSuccessEventHandler, LogoutEv
 		LOG.info("Application initialization.");
 
 		this.root = root;
-
-		views.build();
 
 		appBus.addLoginSuccessHandler(this);
 		appBus.addLogoutHandler(this);

@@ -4,7 +4,7 @@ import com.google.gwt.user.client.ui.IsWidget;
 import com.google.inject.Inject;
 
 @SuppressWarnings({ "rawtypes", "unchecked" })
-public abstract class ApplicationPresenter<T extends ApplicationView & IsWidget, H> {
+public abstract class ApplicationPresenter<T extends ApplicationView & IsWidget, H extends ApplicationService> {
 
 	@Inject
 	protected H service;
@@ -12,17 +12,27 @@ public abstract class ApplicationPresenter<T extends ApplicationView & IsWidget,
 	@Inject
 	protected T view;
 
-	protected abstract void initEventSubscriptions();
+	private boolean initialized = false;
+
+	protected void initEventSubscriptions() {
+	}
 
 	public void init() {
 
-		initEventSubscriptions();
-
 		view.setPresenter(this);
 		view.initLayout();
+
+		service.initEventSubscriptions();
+		this.initEventSubscriptions();
+
+		initialized = true;
 	}
 
 	public T getView() {
 		return view;
+	}
+
+	public boolean isInitialized() {
+		return initialized;
 	}
 }

@@ -1,4 +1,4 @@
-package com.kk.portal.client.app.ui.event;
+package com.kk.portal.client.app.ui.event.app;
 
 import com.google.gwt.event.shared.EventHandler;
 import com.google.gwt.event.shared.GwtEvent;
