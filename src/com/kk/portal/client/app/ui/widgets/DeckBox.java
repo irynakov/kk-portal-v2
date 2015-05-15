@@ -4,7 +4,6 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HasName;
 import com.google.gwt.user.client.ui.InlineLabel;
 import com.google.gwt.user.client.ui.Widget;
@@ -17,9 +16,6 @@ public class DeckBox extends Composite implements HasName {
 
 	@UiField
 	InlineLabel name;
-
-	@UiField
-	HTML dragHandle;
 
 	public DeckBox(String name) {
 		super.initWidget(uiBinder.createAndBindUi(this));
@@ -37,7 +33,7 @@ public class DeckBox extends Composite implements HasName {
 	}
 
 	public Widget getDragHandle() {
-		return dragHandle;
+		return name;
 	}
 
 }

@@ -150,6 +150,24 @@
 	height: 28px;
 }
 
+.decksholder:HOVER {
+	cursor: pointer;
+}
+.decksholder .dragdrop-handle {
+	cursor: pointer;
+	user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+}
+
+.decksholder .dragdrop-positioner {
+	border: 1px solid #1E90FF; /* blue */
+	margin: 0px !important;
+	zoom: 1; /* IE gain hasLayout */
+	z-index: 100;
+	width: 0;
+}
+
 /* -------               Deck Box                   ------- */
 .deckbox {
 	border: 1px solid grey;
@@ -157,18 +175,6 @@
 	box-sizing: border-box;
 	padding: 3px 9px 3px 10px;
 	white-space: nowrap;
-}
-
-.deckbox:HOVER {
-	cursor: pointer;
-}
-
-.deckbox-glass {
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;	
 }
 
 /* -------               Card Table                 ------- */

@@ -3,6 +3,5 @@
 
 	<g:AbsolutePanel styleName="deckbox">
 		<g:InlineLabel ui:field="name" />
-		<g:HTML ui:field="dragHandle" styleName="deckbox-glass"/>
 	</g:AbsolutePanel>
 </ui:UiBinder> 
