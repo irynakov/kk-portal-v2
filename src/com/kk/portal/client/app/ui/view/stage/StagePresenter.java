@@ -9,7 +9,7 @@ import com.kk.portal.client.app.ui.event.ApplicationEventBus;
 import com.kk.portal.client.app.ui.view.ApplicationPresenter;
 import com.kk.portal.client.app.ui.view.ApplicationViewFactory;
 import com.kk.portal.client.app.ui.view.header.HeaderView;
-import com.kk.portal.client.app.ui.view.workspace.WorkspaceView;
+import com.kk.portal.client.app.ui.view.playroom.PlayRoomView;
 
 @Singleton
 public class StagePresenter extends ApplicationPresenter<StageView, StageService> {
@@ -28,8 +28,8 @@ public class StagePresenter extends ApplicationPresenter<StageView, StageService
 		return new InlineHTML("Will be implemented.");
 	}
 
-	public WorkspaceView getWorkspace() {
-		return views.get().view(WorkspaceView.class);
+	public PlayRoomView getWorkspace() {
+		return views.get().view(PlayRoomView.class);
 	}
 
 }

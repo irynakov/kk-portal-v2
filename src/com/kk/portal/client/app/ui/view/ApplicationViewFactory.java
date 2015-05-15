@@ -5,16 +5,16 @@ import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.kk.portal.client.app.ui.view.cardtable.CardTablePresenter;
 import com.kk.portal.client.app.ui.view.cardtable.CardTableView;
+import com.kk.portal.client.app.ui.view.decksholder.DecksHolderPresenter;
+import com.kk.portal.client.app.ui.view.decksholder.DecksHolderView;
 import com.kk.portal.client.app.ui.view.header.HeaderPresenter;
 import com.kk.portal.client.app.ui.view.header.HeaderView;
 import com.kk.portal.client.app.ui.view.login.LoginPresenter;
 import com.kk.portal.client.app.ui.view.login.LoginView;
+import com.kk.portal.client.app.ui.view.playroom.PlayRoomPresenter;
+import com.kk.portal.client.app.ui.view.playroom.PlayRoomView;
 import com.kk.portal.client.app.ui.view.stage.StagePresenter;
 import com.kk.portal.client.app.ui.view.stage.StageView;
-import com.kk.portal.client.app.ui.view.tabbar.TabBarPresenter;
-import com.kk.portal.client.app.ui.view.tabbar.TabBarView;
-import com.kk.portal.client.app.ui.view.workspace.WorkspacePresenter;
-import com.kk.portal.client.app.ui.view.workspace.WorkspaceView;
 
 @Singleton
 public class ApplicationViewFactory {
@@ -29,10 +29,10 @@ public class ApplicationViewFactory {
 	HeaderPresenter header;
 
 	@Inject
-	WorkspacePresenter workspace;
+	PlayRoomPresenter workspace;
 
 	@Inject
-	TabBarPresenter tabBar;
+	DecksHolderPresenter tabBar;
 
 	@Inject
 	CardTablePresenter cardTable;
@@ -46,9 +46,9 @@ public class ApplicationViewFactory {
 			return (T) build(login).view;
 		} else if (HeaderView.class.equals(viewType)) {
 			return (T) build(header).view;
-		} else if (WorkspaceView.class.equals(viewType)) {
+		} else if (PlayRoomView.class.equals(viewType)) {
 			return (T) build(workspace).view;
-		} else if (TabBarView.class.equals(viewType)) {
+		} else if (DecksHolderView.class.equals(viewType)) {
 			return (T) build(tabBar).view;
 		} else if (CardTableView.class.equals(viewType)) {
 			return (T) build(cardTable).view;

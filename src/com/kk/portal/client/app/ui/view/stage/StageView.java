@@ -8,7 +8,7 @@ import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.inject.Singleton;
 import com.kk.portal.client.app.ui.view.ApplicationView;
-import com.kk.portal.client.app.ui.view.workspace.WorkspaceView;
+import com.kk.portal.client.app.ui.view.playroom.PlayRoomView;
 
 @Singleton
 public class StageView extends Composite implements ApplicationView<StagePresenter> {
@@ -24,7 +24,7 @@ public class StageView extends Composite implements ApplicationView<StagePresent
 	HTMLPanel navigationWrapper;
 
 	@UiField(provided=true)
-	WorkspaceView workspaceWrapper;
+	PlayRoomView workspaceWrapper;
 
 	private StagePresenter presenter;
 

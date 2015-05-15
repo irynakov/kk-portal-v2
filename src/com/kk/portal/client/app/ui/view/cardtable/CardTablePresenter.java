@@ -4,13 +4,13 @@ import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.kk.portal.client.app.ui.event.WorkspaceEventBus;
 import com.kk.portal.client.app.ui.event.ws.CardTableStateReceivedEvent;
-import com.kk.portal.client.app.ui.event.ws.TabBarSelectionEvent;
+import com.kk.portal.client.app.ui.event.ws.DeckSelectionEvent;
 import com.kk.portal.client.app.ui.event.ws.CardTableStateReceivedEvent.CardTableStateReceivedEventHandler;
-import com.kk.portal.client.app.ui.event.ws.TabBarSelectionEvent.TabSelectionEventHandler;
+import com.kk.portal.client.app.ui.event.ws.DeckSelectionEvent.DeckSelectionEventHandler;
 import com.kk.portal.client.app.ui.view.ApplicationPresenter;
 
 @Singleton
-public class CardTablePresenter extends ApplicationPresenter<CardTableView, CardTableService> implements TabSelectionEventHandler, CardTableStateReceivedEventHandler {
+public class CardTablePresenter extends ApplicationPresenter<CardTableView, CardTableService> implements DeckSelectionEventHandler, CardTableStateReceivedEventHandler {
 
 	@Inject
 	WorkspaceEventBus wsBus;
@@ -23,7 +23,7 @@ public class CardTablePresenter extends ApplicationPresenter<CardTableView, Card
 	}
 
 	@Override
-	public void onSelection(TabBarSelectionEvent event) {
+	public void onSelection(DeckSelectionEvent event) {
 		view.clean();
 		wsBus.notifyCardTableStateRequest(event.getSelectedTabIndex());
 	}

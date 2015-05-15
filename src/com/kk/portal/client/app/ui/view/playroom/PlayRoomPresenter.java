@@ -1,4 +1,4 @@
-package com.kk.portal.client.app.ui.view.workspace;
+package com.kk.portal.client.app.ui.view.playroom;
 
 import com.google.inject.Inject;
 import com.google.inject.Provider;
@@ -8,10 +8,10 @@ import com.kk.portal.client.app.ui.event.WorkspaceEventBus;
 import com.kk.portal.client.app.ui.view.ApplicationPresenter;
 import com.kk.portal.client.app.ui.view.ApplicationViewFactory;
 import com.kk.portal.client.app.ui.view.cardtable.CardTableView;
-import com.kk.portal.client.app.ui.view.tabbar.TabBarView;
+import com.kk.portal.client.app.ui.view.decksholder.DecksHolderView;
 
 @Singleton
-public class WorkspacePresenter extends ApplicationPresenter<WorkspaceView, WorkspaceService> {
+public class PlayRoomPresenter extends ApplicationPresenter<PlayRoomView, PlayRoomService> {
 
 	@Inject
 	ApplicationEventBus apBus;
@@ -22,16 +22,16 @@ public class WorkspacePresenter extends ApplicationPresenter<WorkspaceView, Work
 	@Inject
 	Provider<ApplicationViewFactory> views;
 
-	public TabBarView getTabBar() {
-		return views.get().view(TabBarView.class);
+	public DecksHolderView getDeckManager() {
+		return views.get().view(DecksHolderView.class);
 	}
 
 	public CardTableView getCardTable() {
 		return views.get().view(CardTableView.class);
 	}
 
-	public void requestTabBarState() {
-		wsBus.notifyTabBarStateRequest();
+	public void requestDeckManagerState() {
+		wsBus.notifyDeckManagerStateRequest();
 	}
 
 }

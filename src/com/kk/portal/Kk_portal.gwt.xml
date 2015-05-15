@@ -10,6 +10,7 @@
 	<!-- Other module inherits -->
 	<inherits name="com.github.gwtbootstrap.Bootstrap"/>
 	<inherits name="org.fusesource.restygwt.RestyGWT"/>
+	<inherits name='com.allen_sauer.gwt.dnd.gwt-dnd'/>
 
 	<!-- Specify the app entry point class. -->
 	<entry-point class='com.kk.portal.client.ROOT'/>

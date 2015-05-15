@@ -15,7 +15,16 @@
 	overflow: hidden;
 }
 
-/* -------               Login page               ------- */
+.noselect {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+/* -------               Login page                 ------- */
 .login-view {
 	background: #fff url("img/bg_kk.jpg") no-repeat left top fixed;
 	background-size: 100% 100%;
@@ -98,7 +107,8 @@
 	font-weight: bold;
 	white-space: nowrap;
 }
-/* -------               Stage                    ------- */
+
+/* -------               Stage                      ------- */
 .stage {
 	
 }
@@ -111,7 +121,7 @@
 	display: table;
 }
 
-/* -------              Navigation                ------- */
+/* -------               Navigation                 ------- */
 .navigation-wrapper {
 	display: table-cell;
 	position: relative;
@@ -119,30 +129,51 @@
 	background-color: lavender;
 }
 
-/* -------               Header                   ------- */
+/* -------               Header                     ------- */
 .header-wrapper {
 	position: relative;
 	background-color: lightslategray;
 	height: 50px;
 }
 
-/* -------              Workspace                 ------- */
+/* -------               Workspace                  ------- */
 .workspace-wrapper {
 	display: table-cell;
 	position: relative;
 	background-color: lemonchiffon;
 }
 
-/* -------               Tab Bar                  ------- */
-.tabbar-wrapper {
+/* -------               Decks Holder                ------- */
+.decksholder {
 	background-color: lightgreen;
 	width: 100%;
+	height: 28px;
 }
 
-/* -------              Card Table                ------- */
+/* -------               Deck Box                   ------- */
+.deckbox {
+	border: 1px solid grey;
+	display: inline-flex;
+	box-sizing: border-box;
+	padding: 3px 9px 3px 10px;
+	white-space: nowrap;
+}
+
+.deckbox:HOVER {
+	cursor: pointer;
+}
+
+.deckbox-glass {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;	
+}
+
+/* -------               Card Table                 ------- */
 .cardtable-wrapper {
 	background-color: lightsteelblue;
 	width: 100%;
-	height: calc(100% - 30px);
+	height: calc(100% - 28px);
 }
-

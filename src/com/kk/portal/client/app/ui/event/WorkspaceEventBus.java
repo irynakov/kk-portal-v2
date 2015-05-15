@@ -9,12 +9,12 @@ import com.kk.portal.client.app.ui.event.ws.CardTableStateReceivedEvent;
 import com.kk.portal.client.app.ui.event.ws.CardTableStateReceivedEvent.CardTableStateReceivedEventHandler;
 import com.kk.portal.client.app.ui.event.ws.CardTableStateRequestEvent;
 import com.kk.portal.client.app.ui.event.ws.CardTableStateRequestEvent.CardTableStateRequestEventHandler;
-import com.kk.portal.client.app.ui.event.ws.TabBarSelectionEvent;
-import com.kk.portal.client.app.ui.event.ws.TabBarSelectionEvent.TabSelectionEventHandler;
-import com.kk.portal.client.app.ui.event.ws.TabBarStateReceivedEvent;
-import com.kk.portal.client.app.ui.event.ws.TabBarStateReceivedEvent.TabBarStateReceivedEventHandler;
-import com.kk.portal.client.app.ui.event.ws.TabBarStateRequestEvent;
-import com.kk.portal.client.app.ui.event.ws.TabBarStateRequestEvent.TabBarStateRequestEventHandler;
+import com.kk.portal.client.app.ui.event.ws.DeckSelectionEvent;
+import com.kk.portal.client.app.ui.event.ws.DeckSelectionEvent.DeckSelectionEventHandler;
+import com.kk.portal.client.app.ui.event.ws.DeckManagerStateReceivedEvent;
+import com.kk.portal.client.app.ui.event.ws.DeckManagerStateReceivedEvent.DeckManagerStateReceivedEventHandler;
+import com.kk.portal.client.app.ui.event.ws.DeckManagerStateRequestEvent;
+import com.kk.portal.client.app.ui.event.ws.DeckManagerStateRequestEvent.DeckManagerStateRequestEventHandler;
 import com.kk.portal.shared.domain.state.CardTableState;
 import com.kk.portal.shared.domain.state.TabBarState;
 
@@ -28,30 +28,30 @@ public class WorkspaceEventBus extends SimpleEventBus {
 		LOG.info(WorkspaceEventBus.class.getName() + " for application created.");
 	}
 
-	public HandlerRegistration addTabSelectionHandler(final TabSelectionEventHandler handler) {
-		return addHandler(TabBarSelectionEvent.TYPE, handler);
+	public HandlerRegistration addTabSelectionHandler(final DeckSelectionEventHandler handler) {
+		return addHandler(DeckSelectionEvent.TYPE, handler);
 	}
 
 	public void notifyTabSelection(Integer selectedTabIndex) {
-		fireEvent(new TabBarSelectionEvent(selectedTabIndex));
+		fireEvent(new DeckSelectionEvent(selectedTabIndex));
 	}
 
-	public HandlerRegistration addTabBarStateRequestHandler(final TabBarStateRequestEventHandler handler) {
+	public HandlerRegistration addTabBarStateRequestHandler(final DeckManagerStateRequestEventHandler handler) {
 		LOG.info("Add handler: [" + handler.getClass().getName() + "]");
-		return addHandler(TabBarStateRequestEvent.TYPE, handler);
+		return addHandler(DeckManagerStateRequestEvent.TYPE, handler);
 	}
 
-	public void notifyTabBarStateRequest() {
-		fireEvent(new TabBarStateRequestEvent());
+	public void notifyDeckManagerStateRequest() {
+		fireEvent(new DeckManagerStateRequestEvent());
 	}
 
-	public HandlerRegistration addTabBarStateReceivedHandler(final TabBarStateReceivedEventHandler handler) {
+	public HandlerRegistration addTabBarStateReceivedHandler(final DeckManagerStateReceivedEventHandler handler) {
 		LOG.info("Add handler: [" + handler.getClass().getName() + "]");
-		return addHandler(TabBarStateReceivedEvent.TYPE, handler);
+		return addHandler(DeckManagerStateReceivedEvent.TYPE, handler);
 	}
 
 	public void notifyTabBarStateReceived(TabBarState tabBarState) {
-		fireEvent(new TabBarStateReceivedEvent(tabBarState));
+		fireEvent(new DeckManagerStateReceivedEvent(tabBarState));
 	}
 
 	public HandlerRegistration addCardTableStateRequestHandler(final CardTableStateRequestEventHandler handler) {

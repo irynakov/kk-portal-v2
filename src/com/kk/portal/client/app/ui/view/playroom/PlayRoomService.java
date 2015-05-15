@@ -1,10 +1,10 @@
-package com.kk.portal.client.app.ui.view.workspace;
+package com.kk.portal.client.app.ui.view.playroom;
 
 import com.google.inject.Singleton;
 import com.kk.portal.client.app.ui.view.ApplicationService;
 
 @Singleton
-public class WorkspaceService implements ApplicationService {
+public class PlayRoomService implements ApplicationService {
 
 	@Override
 	public void initEventSubscriptions() {

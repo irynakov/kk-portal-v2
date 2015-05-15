@@ -1,4 +1,4 @@
-package com.kk.portal.client.app.ui.view.tabbar;
+package com.kk.portal.client.app.ui.view.decksholder;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -10,16 +10,16 @@ import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.kk.portal.client.app.comm.WebServiceCommunicationInterface;
 import com.kk.portal.client.app.ui.event.WorkspaceEventBus;
-import com.kk.portal.client.app.ui.event.ws.TabBarStateRequestEvent;
-import com.kk.portal.client.app.ui.event.ws.TabBarStateRequestEvent.TabBarStateRequestEventHandler;
+import com.kk.portal.client.app.ui.event.ws.DeckManagerStateRequestEvent;
+import com.kk.portal.client.app.ui.event.ws.DeckManagerStateRequestEvent.DeckManagerStateRequestEventHandler;
 import com.kk.portal.client.app.ui.view.ApplicationService;
 import com.kk.portal.shared.domain.comm.resp.UIStateResp;
 import com.kk.portal.shared.domain.state.TabBarState;
 
 @Singleton
-public class TabBarService implements ApplicationService, TabBarStateRequestEventHandler {
+public class DecksHolderService implements ApplicationService, DeckManagerStateRequestEventHandler {
 
-	private static final Logger LOG = Logger.getLogger(TabBarService.class.getName());
+	private static final Logger LOG = Logger.getLogger(DecksHolderService.class.getName());
 
 	@Inject
 	WebServiceCommunicationInterface comm;
@@ -33,7 +33,7 @@ public class TabBarService implements ApplicationService, TabBarStateRequestEven
 	}
 
 	@Override
-	public void onStateRequest(TabBarStateRequestEvent event) {
+	public void onStateRequest(DeckManagerStateRequestEvent event) {
 		LOG.info("Requesting tab bar state.");
 
 		comm.getTabBarState(new MethodCallback<UIStateResp<TabBarState>>() {

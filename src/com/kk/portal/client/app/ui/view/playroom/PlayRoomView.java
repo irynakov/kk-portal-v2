@@ -1,4 +1,4 @@
-package com.kk.portal.client.app.ui.view.workspace;
+package com.kk.portal.client.app.ui.view.playroom;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
@@ -7,35 +7,35 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Widget;
 import com.kk.portal.client.app.ui.view.ApplicationView;
 import com.kk.portal.client.app.ui.view.cardtable.CardTableView;
-import com.kk.portal.client.app.ui.view.tabbar.TabBarView;
+import com.kk.portal.client.app.ui.view.decksholder.DecksHolderView;
 
-public class WorkspaceView extends Composite implements ApplicationView<WorkspacePresenter> {
+public class PlayRoomView extends Composite implements ApplicationView<PlayRoomPresenter> {
 
-	interface WorkspaceViewUiBinder extends UiBinder<Widget, WorkspaceView> {}
+	interface WorkspaceViewUiBinder extends UiBinder<Widget, PlayRoomView> {}
 
 	private static final WorkspaceViewUiBinder uiBinder = GWT.create(WorkspaceViewUiBinder.class);
 
 	@UiField(provided = true)
-	TabBarView tabBar;
+	DecksHolderView deckManager;
 
 	@UiField(provided = true)
 	CardTableView cardTable;
 
-	private WorkspacePresenter presenter;
+	private PlayRoomPresenter presenter;
 
 	@Override
-	public void setPresenter(WorkspacePresenter presenter) {
+	public void setPresenter(PlayRoomPresenter presenter) {
 		this.presenter = presenter;
 	}
 
 	@Override
 	public void initLayout() {
 
-		tabBar = presenter.getTabBar();
+		deckManager = presenter.getDeckManager();
 		cardTable = presenter.getCardTable();
 
 		initWidget(uiBinder.createAndBindUi(this));
 		
-		presenter.requestTabBarState();
+		presenter.requestDeckManagerState();
 	}
 }
