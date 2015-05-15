@@ -150,9 +150,6 @@
 	height: 28px;
 }
 
-.decksholder:HOVER {
-	cursor: pointer;
-}
 .decksholder .dragdrop-handle {
 	cursor: pointer;
 	user-select: none;
@@ -175,6 +172,7 @@
 	box-sizing: border-box;
 	padding: 3px 9px 3px 10px;
 	white-space: nowrap;
+	cursor: pointer;
 }
 
 /* -------               Card Table                 ------- */
