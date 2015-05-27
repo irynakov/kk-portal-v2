@@ -12,10 +12,10 @@ import com.kk.portal.client.app.ui.event.app.LoginSuccessEvent;
 import com.kk.portal.client.app.ui.event.app.LoginSuccessEvent.LoginSuccessEventHandler;
 import com.kk.portal.client.app.ui.event.app.LogoutEvent.LogoutEventHandler;
 import com.kk.portal.client.app.ui.event.app.LogoutResetEvent.LogoutResetEventHandler;
+import com.kk.portal.client.app.ui.frame.FrameViewFactory;
+import com.kk.portal.client.app.ui.frame.login.LoginView;
+import com.kk.portal.client.app.ui.frame.stage.StageView;
 import com.kk.portal.client.app.ui.support.AutoLogoutScheduler;
-import com.kk.portal.client.app.ui.view.ApplicationViewFactory;
-import com.kk.portal.client.app.ui.view.login.LoginView;
-import com.kk.portal.client.app.ui.view.stage.StageView;
 
 @Singleton
 public class ApplicationController implements LoginSuccessEventHandler, LogoutEventHandler, LogoutResetEventHandler {
@@ -29,7 +29,7 @@ public class ApplicationController implements LoginSuccessEventHandler, LogoutEv
 	AutoLogoutScheduler autoLogout;
 
 	@Inject
-	ApplicationViewFactory views;
+	FrameViewFactory views;
 
 	private LayoutPanel root;
 

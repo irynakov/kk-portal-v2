@@ -1,0 +1,10 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:d="urn:import:com.kk.portal.client.app.ui.frame.decksholder" xmlns:c="urn:import:com.kk.portal.client.app.ui.frame.cardtable">
+
+	<g:HTMLPanel styleName="workspace-wrapper">
+		<d:DecksHolderView ui:field="deckManager"/>
+		<c:CardTableView ui:field="cardTable"/>
+	</g:HTMLPanel>
+
+</ui:UiBinder> 

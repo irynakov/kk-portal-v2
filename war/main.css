@@ -181,3 +181,8 @@
 	width: 100%;
 	height: calc(100% - 28px);
 }
+
+/* -------               Module Card                ------- */
+.modulecard {
+	border: 1px solid white;
+}
