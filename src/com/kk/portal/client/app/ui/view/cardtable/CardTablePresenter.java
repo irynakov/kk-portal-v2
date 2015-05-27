@@ -1,5 +1,6 @@
 package com.kk.portal.client.app.ui.view.cardtable;
 
+import com.google.gwt.user.client.ui.Widget;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.kk.portal.client.app.ui.event.WorkspaceEventBus;
@@ -7,6 +8,8 @@ import com.kk.portal.client.app.ui.event.ws.CardTableStateReceivedEvent;
 import com.kk.portal.client.app.ui.event.ws.DeckSelectionEvent;
 import com.kk.portal.client.app.ui.event.ws.CardTableStateReceivedEvent.CardTableStateReceivedEventHandler;
 import com.kk.portal.client.app.ui.event.ws.DeckSelectionEvent.DeckSelectionEventHandler;
+import com.kk.portal.client.app.ui.module.ModuleViewFactory;
+import com.kk.portal.client.app.ui.module.parkoverview.EmptyModuleView;
 import com.kk.portal.client.app.ui.view.ApplicationPresenter;
 
 @Singleton
@@ -14,6 +17,9 @@ public class CardTablePresenter extends ApplicationPresenter<CardTableView, Card
 
 	@Inject
 	WorkspaceEventBus wsBus;
+	
+	@Inject
+	ModuleViewFactory modules;
 
 	@Override
 	protected void initEventSubscriptions() {
@@ -24,14 +30,17 @@ public class CardTablePresenter extends ApplicationPresenter<CardTableView, Card
 
 	@Override
 	public void onSelection(DeckSelectionEvent event) {
-		view.clean();
+		view.clear();
 		wsBus.notifyCardTableStateRequest(event.getSelectedTabIndex());
 	}
 
 	@Override
 	public void onStateReceive(CardTableStateReceivedEvent event) {
 		view.deal(event.getState().getText());
-		
+	}
+
+	public Widget getCard(String text) {
+		return modules.view(EmptyModuleView.class);
 	}
 
 }

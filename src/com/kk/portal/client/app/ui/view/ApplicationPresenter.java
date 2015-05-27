@@ -28,7 +28,7 @@ public abstract class ApplicationPresenter<T extends ApplicationView & IsWidget,
 		initialized = true;
 	}
 
-	public T getView() {
+	public T view() {
 		return view;
 	}
 

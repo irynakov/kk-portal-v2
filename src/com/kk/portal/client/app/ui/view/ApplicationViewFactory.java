@@ -3,6 +3,7 @@ package com.kk.portal.client.app.ui.view;
 import com.google.gwt.user.client.ui.IsWidget;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import com.kk.portal.client.app.ui.ViewFactory;
 import com.kk.portal.client.app.ui.view.cardtable.CardTablePresenter;
 import com.kk.portal.client.app.ui.view.cardtable.CardTableView;
 import com.kk.portal.client.app.ui.view.decksholder.DecksHolderPresenter;
@@ -17,7 +18,7 @@ import com.kk.portal.client.app.ui.view.stage.StagePresenter;
 import com.kk.portal.client.app.ui.view.stage.StageView;
 
 @Singleton
-public class ApplicationViewFactory {
+public class ApplicationViewFactory extends ViewFactory {
 
 	@Inject
 	LoginPresenter login;
@@ -56,11 +57,4 @@ public class ApplicationViewFactory {
 
 		throw new IllegalArgumentException("Add support of " + viewType.getName() + " in " + ApplicationViewFactory.class.getName() + "#view(..).");
 	};
-
-	private ApplicationPresenter<?, ?> build(ApplicationPresenter<?, ?> presenter) {
-		if (!presenter.isInitialized()) {
-			presenter.init();
-		}
-		return presenter;
-	}
 }

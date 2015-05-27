@@ -5,6 +5,8 @@ import java.util.List;
 import com.allen_sauer.gwt.dnd.client.PickupDragController;
 import com.allen_sauer.gwt.dnd.client.drop.HorizontalPanelDropController;
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiConstructor;
 import com.google.gwt.uibinder.client.UiField;
@@ -20,7 +22,6 @@ public class DecksHolderView extends Composite implements ApplicationView<DecksH
 
 	private static final TabBarViewUiBinder uiBinder = GWT.create(TabBarViewUiBinder.class);
 
-	@SuppressWarnings("unused")
 	private DecksHolderPresenter presenter;
 
 	@UiField
@@ -54,8 +55,18 @@ public class DecksHolderView extends Composite implements ApplicationView<DecksH
 	}
 
 	public void addTabs(final List<String> tabs) {
+		DeckBox deckBox;
 		for (final String tab : tabs) {
-			final DeckBox deckBox = new DeckBox(tab);
+			final int index = tabs.indexOf(tab);
+			
+			deckBox = new DeckBox(tab);
+			deckBox.addClickHandler(new ClickHandler() {
+				
+				@Override
+				public void onClick(ClickEvent event) {
+					presenter.handleTabSelection(index);
+				}
+			});
 			deckHolder.add(deckBox);
 			dragController.makeDraggable(deckBox, deckBox.getDragHandle());
 		}

@@ -1,5 +1,7 @@
 package com.kk.portal.client.app.ui.view.cardtable;
 
+import java.util.logging.Logger;
+
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
@@ -9,7 +11,7 @@ import com.google.gwt.user.client.ui.Widget;
 import com.kk.portal.client.app.ui.view.ApplicationView;
 
 public class CardTableView extends Composite implements ApplicationView<CardTablePresenter> {
-
+	
 	interface CardTableViewUiBinder extends UiBinder<Widget, CardTableView> {}
 
 	private static CardTableViewUiBinder uiBinder = GWT.create(CardTableViewUiBinder.class);
@@ -33,10 +35,11 @@ public class CardTableView extends Composite implements ApplicationView<CardTabl
 
 	}
 
-	public void clean() {
+	public void clear() {
 		container.clear();
 	}
 
 	public void deal(String text) {
+		container.add(presenter.getCard(text));
 	}
 }
