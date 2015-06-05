@@ -1,5 +1,18 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui">
+
 	<g:HTMLPanel styleName="modulecard">
+		<table>
+			<tr>
+				<th>
+					<g:InlineLabel ui:field="title"/>
+				</th>
+			</tr>
+			<tr>
+				<td>
+					<g:HTMLPanel ui:field="content" styleName="modulecard-content"/>
+				</td>
+			</tr>
+		</table>
 	</g:HTMLPanel>
 </ui:UiBinder> 

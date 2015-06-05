@@ -185,4 +185,34 @@
 /* -------               Module Card                ------- */
 .modulecard {
 	border: 1px solid white;
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	-mox-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+.modulecard table {
+	width: 100%;
+	height: 100%;
+}
+.modulecard th {
+	position: relative;
+	height: 26px;
+}
+
+.modulecard-content {
+	position: relative;
+}
+
+.test-html-button {
+	width: 16px;
+	height: 16px;
+	background-repeat: no-repeat;
+	background-color: red;
+}
+
+.test-filter-panel {
+	background-color: white;
+	border: 1px solid black;
 }

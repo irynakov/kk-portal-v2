@@ -30,4 +30,9 @@ public class EmptyModuleView extends Composite implements ModuleView<EmptyModule
 		
 	}
 
+	@Override
+	public String getModuleTitle() {
+		return EmptyModuleView.class.getSimpleName();
+	}
+
 }

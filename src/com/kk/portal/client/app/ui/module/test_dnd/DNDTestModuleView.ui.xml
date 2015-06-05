@@ -1,5 +1,12 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui">
 	<g:HTMLPanel>
+		<g:HTMLPanel styleName="filter-wrapper">
+			<g:HTML ui:field="show" styleName="test-html-button" />
+			<g:HTMLPanel ui:field="filter" styleName="test-filter-panel">
+				<g:InlineLabel>hello i'm hoden label</g:InlineLabel>
+			</g:HTMLPanel>
+		</g:HTMLPanel>
+		Hello, i'm module to test DND functionlyti
 	</g:HTMLPanel>
 </ui:UiBinder> 
