@@ -1,8 +1,10 @@
 *.class
 
-# Package Files #
+# Package Files and packaging logs
 *.jar
 *.war
+*-build.log
+target/
 
 # gwt caches and compiled units #
 war/kk_portal/
