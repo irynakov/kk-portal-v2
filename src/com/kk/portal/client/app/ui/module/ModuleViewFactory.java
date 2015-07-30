@@ -8,6 +8,8 @@ import com.kk.portal.client.app.ui.module.empty.EmptyModulePresenter;
 import com.kk.portal.client.app.ui.module.empty.EmptyModuleView;
 import com.kk.portal.client.app.ui.module.test_dnd.DNDTestModulePresenter;
 import com.kk.portal.client.app.ui.module.test_dnd.DNDTestModuleView;
+import com.kk.portal.client.app.ui.module.test_map.MapTestModulePresenter;
+import com.kk.portal.client.app.ui.module.test_map.MapTestModuleView;
 import com.kk.portal.client.app.ui.wireframe.FrameViewFactory;
 
 public class ModuleViewFactory extends ApplicationViewFactory {
@@ -17,6 +19,9 @@ public class ModuleViewFactory extends ApplicationViewFactory {
 
 	@Inject
 	DNDTestModulePresenter dndTest;
+	
+	@Inject
+	MapTestModulePresenter mapTest;
 
 	@Override
 	@SuppressWarnings("unchecked")
@@ -26,6 +31,8 @@ public class ModuleViewFactory extends ApplicationViewFactory {
 			return (T) build(empty).view();
 		} else if (DNDTestModuleView.class.equals(viewType)) {
 			return (T) build(dndTest).view();
+		} else if(MapTestModuleView.class.equals(viewType)){
+			return (T) build(mapTest).view();
 		}
 
 		throw new IllegalArgumentException("Add support of " + viewType.getName() + " in " + FrameViewFactory.class.getName() + "#view(..).");
