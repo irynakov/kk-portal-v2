@@ -10,7 +10,6 @@ import com.kk.portal.client.app.ui.event.ws.DeckSelectionEvent;
 import com.kk.portal.client.app.ui.event.ws.DeckSelectionEvent.DeckSelectionEventHandler;
 import com.kk.portal.client.app.ui.module.ModuleViewFactory;
 import com.kk.portal.client.app.ui.module.test_dnd.DNDTestModuleView;
-import com.kk.portal.client.app.ui.module.test_map.MapTestModuleView;
 import com.kk.portal.client.app.ui.widgets.ModuleCard;
 import com.kk.portal.client.app.ui.wireframe.FramePresenter;
 
@@ -42,8 +41,7 @@ public class CardTablePresenter extends FramePresenter<CardTableView, CardTableS
 	}
 
 	public Widget getCard(String text) {
-		return new ModuleCard(modules.view(MapTestModuleView.class));
-		//return new ModuleCard(modules.view(DNDTestModuleView.class));
+		return new ModuleCard(modules.view(DNDTestModuleView.class));
 	}
 
 }
